@@ -43,7 +43,7 @@ export default function SignUpScreen() {
       >
         <View className="items-center mb-8">
           <Image
-            source={require('../../assets/images/logo.png')}
+            source={require('../../assets/images/DayUp-Logo.png')}
             className="w-30 h-10"
             resizeMode="contain"
           />
@@ -83,6 +83,7 @@ export default function SignUpScreen() {
             placeholder="••••••••••••••••"
             error={touched.password ? errors.password : undefined}
             secureTextEntry
+            isPassword
           />
 
           <Button
