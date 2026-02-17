@@ -1,4 +1,6 @@
-# <img src="./assets/images/DayUp-Logo.png" alt="DayUp Logo" width="200" />
+<div align="center">
+  <img src="./assets/images/DayUp-Logo.png" alt="DayUp Logo" width="200" />
+</div>
 
 > *Organize your day, build your habits, elevate your life.*
 
