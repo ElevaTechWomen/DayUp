@@ -1,5 +1,6 @@
 import "../global.css"
-
+import { useEffect } from 'react';
+import { testFirebaseConnection } from './config/firebase.test'; 
 import { DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
@@ -10,6 +11,7 @@ export const unstable_settings = {
 };
 
 export default function RootLayout() {
+  useEffect(() => { testFirebaseConnection(); }, []);
   return (
     <ThemeProvider value={DefaultTheme}>
       <Stack>
