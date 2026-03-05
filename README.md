@@ -53,7 +53,7 @@ Unlike other productivity apps, DayUp integrates:
 | React Native | 0.81+ | Mobile framework |
 | Expo | 54+ | Development platform |
 | TypeScript | 5+ | Type safety |
-| Supabase | -- | Auth & database *(upcoming)* |
+| Firebase | Autenticación y base de datos |
 | Tailwind CSS | 3+ | Styling |
 | Expo Router | 6+ | Navigation |
 | Ionicons | — | Icon library |
@@ -101,16 +101,21 @@ cd dayup
 2. **Install dependencies**
 ```bash
 npm install
-# or
-yarn install
 ```
 
-3. **Start the development server**
+3. **Configure environment variables**
+```bash
+cp .env.example .env
+```
+
+Fill in your Firebase credentials. See [docs/firebase-setup.md](./docs/firebase-setup.md) for detailed instructions.
+
+4. **Start the development server**
 ```bash
 npx expo start
 ```
 
-4. **Run on device or emulator**
+5. **Run on device or emulator**
 ```bash
 # Android
 npx expo run:android
@@ -121,7 +126,9 @@ npx expo run:ios
 # Expo Go (scan QR)
 npx expo start
 ```
+
 ---
+
 
 ## 🎨 Screenshots
 
@@ -182,7 +189,7 @@ A diferencia de otras apps, DayUp integra:
 | React Native | Framework móvil |
 | Expo | Plataforma de desarrollo |
 | TypeScript | Tipado estático |
-| Supabase | Autenticación y base de datos *(próximamente)* |
+| Firebase | Autenticación y base de datos |
 | Tailwind CSS | Estilos |
 | Expo Router | Navegación |
 | Ionicons | Librería de íconos |
@@ -199,14 +206,42 @@ A diferencia de otras apps, DayUp integra:
 
 ### Pasos
 
+1. **Clona el repositorio**
 ```bash
 git clone https://github.com/your-username/dayup.git
 cd dayup
-npm install
-npx expo start
 ```
 
+2. **Instala dependencias**
+```bash
+npm install
+```
+
+3. **Configura las variables de entorno**
+```bash
+cp .env.example .env
+```
+
+Completa el archivo `.env` con tus credenciales de Firebase. Ver [docs/firebase-setup.md](./docs/firebase-setup.md) para instrucciones detalladas.
+
+4. **Inicia el servidor**
+```bash
+npx expo start
+```
+5. **Ejecutar en dispositivo o emulador**
+```bash
+# Android
+npx expo run:android
+
+# iOS
+npx expo run:ios
+
+# Expo Go (escanear QR)
+npx expo start
+```
 ---
+
+
 
 ## 💜 Nuestro Equipo: ElevaTechWomen
 Somos un grupo de desarrolladoras egresadas de Laboratoria que hemos decidido unir fuerzas para continuar nuestra formación de manera autónoma y práctica. En ElevaTechWomen, entendemos que el crecimiento técnico va de la mano con el apoyo mutuo.
