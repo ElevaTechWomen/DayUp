@@ -1,6 +1,6 @@
 import "../global.css"
 import { useEffect } from 'react';
-import { testFirebaseConnection } from './config/firebase.test'; 
+import { testFirebaseConnection } from '../config/firebase.test'; 
 import { DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
