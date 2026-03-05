@@ -10,7 +10,6 @@
 |---|---|---|
 | Authentication | ✅ Enabled | |
 | Firestore Database | ✅ Enabled | Test mode (expires 2026-03-30) |
-| Storage | ⏳ Pending | Requires Blaze plan upgrade |
 
 ### Step 1 — Create a Firebase project
 
@@ -119,7 +118,6 @@ GoogleService-Info.plist
 |---|---|---|
 | Authentication | ✅ Habilitado | 
 | Firestore Database | ✅ Habilitado | Modo test (expira 2026-03-30) |
-| Storage | ⏳ Pendiente | Requiere actualizar al plan Blaze |
 
 ### Paso 1 — Crear proyecto en Firebase Console
 

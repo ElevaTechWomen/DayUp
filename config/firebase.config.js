@@ -7,14 +7,13 @@ import Constants from 'expo-constants';
 const extra = Constants.expoConfig?.extra ?? {};
 
 const firebaseConfig = {
-  apiKey: firebaseApiKey,
-  authDomain: firebaseAuthDomain,
-  projectId: firebaseProjectId,
-  storageBucket: firebaseStorageBucket,
-  messagingSenderId: firebaseMessagingSenderId,
-  appId: firebaseAppId,
+  apiKey: extra.firebaseApiKey,
+  authDomain: extra.firebaseAuthDomain,
+  projectId: extra.firebaseProjectId,
+  storageBucket: extra.firebaseStorageBucket,
+  messagingSenderId: extra.firebaseMessagingSenderId,
+  appId: extra.firebaseAppId,
 };
-
 // Evita reinicializar Firebase en hot reload
 const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApp();
 
