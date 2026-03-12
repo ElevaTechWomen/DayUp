@@ -19,7 +19,7 @@ export default function LoginScreen() {
         isFormValid,
     } = useLoginValidation();
 
-    const handleSignUp = () => {
+    const handleSignIp = () => {
         console.log('Inicio de sesión exitoso:', formData);
         router.replace('/(tabs)');
     };
@@ -71,8 +71,8 @@ export default function LoginScreen() {
                     />
 
                     <Button
-                        title="Sign Up"
-                        onPress={handleSignUp}
+                        title="Sign In"
+                        onPress={handleSignIp}
                         disabled={!isFormValid()}
                     />
 
