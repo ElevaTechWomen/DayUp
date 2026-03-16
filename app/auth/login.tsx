@@ -3,16 +3,16 @@ import { View, Image, ScrollView, Text, KeyboardAvoidingView, Platform } from "r
 import { Input } from '../../components/ui/Input';
 import { Button } from '../../components/ui/Button';
 import { useLoginValidation } from '../../hooks/frontend/useLoginValidation';
-import { loginStyles, scrollContentStyle} from '../../Styles/loginStyles';
+import { loginStyles, scrollContentStyle } from '../../Styles/loginStyles';
 import { useRouter } from "expo-router";
 
 export default function LoginScreen() {
 
-    const router = useRouter();
+  const router = useRouter();
 
-    const {
-        formData,
-        errors,
+  const {
+      formData,
+      errors,
         touched,
         handleChange,
         handleBlur,
