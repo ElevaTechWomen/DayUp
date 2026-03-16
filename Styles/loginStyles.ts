@@ -4,7 +4,7 @@ export const loginStyles = {
   logo: "w-30 h-10",
   formContainer: "flex-1",
   title: "text-3xl font-bold text-gray-900 mb-6",
-  socialContainer: "mt-6 min-h-30"
+  socialContainer: "mt-10 min-h-30"
 }
 
 export const scrollContentStyle = {
