@@ -86,16 +86,15 @@ export default function SignUpScreen() {
             secureTextEntry
             isPassword
           />
-          {/* 👇 NUEVO: Muestra error del servidor */}
           {error && (
             <Text className="text-sm text-red-500 mb-2 text-center">
               {error}
             </Text>
           )}
           <Button
-            title="Sign Up"
+            title={loading ? "Signing up..." : "Sign Up"}
             onPress={handleSignUp}
-            disabled={!isFormValid()}
+            disabled={!isFormValid() || loading}
           />
 
           <View className="mt-6 min-h-30">

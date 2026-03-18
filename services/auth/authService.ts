@@ -3,7 +3,6 @@ import { doc, setDoc, serverTimestamp } from "firebase/firestore";
 import { AuthFormData } from "../../types/auth.types";
 import { auth, db } from "../../config/firebase.config";
 
-// Mapeo de errores de Firebase a mensajes claros en español
 const mapFirebaseError = (errorCode: string): string => {
   const errorMessages: Record<string, string> = {
     "auth/email-already-in-use": "Este correo ya está registrado.",
@@ -21,15 +20,12 @@ export const registerUser = async ({
   password,
 }: AuthFormData) => {
   try {
-    // 1. Crear usuario en Firebase Authentication
     const userCredential = await createUserWithEmailAndPassword(
       auth,
       email,
       password,
     );
     const user = userCredential.user;
-
-    // 2. Guardar datos adicionales en Firestore (colección "users", doc ID = uid)
     await setDoc(doc(db, "users", user.uid), {
       uid: user.uid,
       nombre: username,

@@ -17,8 +17,6 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // onAuthStateChanged retorna una función para desuscribirse
-    // Esto evita memory leaks cuando el componente se desmonta
     const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
       console.log("sesion activa", firebaseUser);
 
@@ -26,7 +24,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       setIsLoading(false);
     });
 
-    return unsubscribe; // limpieza automática
+    return unsubscribe;
   }, []);
 
   return (
@@ -36,5 +34,4 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-// Hook personalizado para usar el contexto fácilmente
 export const useAuth = () => useContext(AuthContext);
