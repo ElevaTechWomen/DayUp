@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import {
-  TouchableOpacity,
-  ActivityIndicator,
-} from 'react-native';
+import { TouchableOpacity, ActivityIndicator } from 'react-native';
 import { SvgXml } from 'react-native-svg';
 
-import { SocialAuthButtonProps, SocialProvider } from './SocialAuthButton.types';
+import {
+  SocialAuthButtonProps,
+  SocialProvider,
+} from './SocialAuthButton.types';
 
 const ICONS: Record<SocialProvider, string> = {
   google: `
@@ -28,10 +28,13 @@ const ICONS: Record<SocialProvider, string> = {
 };
 
 // ─── Provider config ───────────────────────────────────────────────────
-const CONFIG: Record<SocialProvider, { label: string; iconSize: number; pressedBg: string }> = {
-  google:   { label: 'Google',   iconSize: 26, pressedBg: '#EBF3FF' },
+const CONFIG: Record<
+  SocialProvider,
+  { label: string; iconSize: number; pressedBg: string }
+> = {
+  google: { label: 'Google', iconSize: 26, pressedBg: '#EBF3FF' },
   facebook: { label: 'Facebook', iconSize: 26, pressedBg: '#EBF3FF' },
-  apple:    { label: 'Apple',    iconSize: 26, pressedBg: '#EBF3FF' },
+  apple: { label: 'Apple', iconSize: 26, pressedBg: '#EBF3FF' },
 };
 
 // ─── Component ─────────────────────────────────────────────────────────
@@ -64,7 +67,9 @@ const SocialAuthButton: React.FC<SocialAuthButtonProps> = ({
       accessibilityLabel={`Continuar con ${config.label}`}
       accessibilityState={{ disabled: disabled || loading }}
       className={`w-20 h-12 rounded-lg border border-gray-200 items-center justify-center ${disabled ? 'opacity-50' : 'opacity-100'}`}
-      style={{ backgroundColor: pressed && !disabled ? config.pressedBg : '#FFFFFF' }}
+      style={{
+        backgroundColor: pressed && !disabled ? config.pressedBg : '#FFFFFF',
+      }}
     >
       {loading ? (
         <ActivityIndicator size="small" color="#888888" />

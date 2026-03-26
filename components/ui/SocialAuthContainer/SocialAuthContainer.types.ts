@@ -1,5 +1,5 @@
-import { ViewStyle } from "react-native";
-import { SocialProvider } from "../SocialAuthButton";
+import { ViewStyle } from 'react-native';
+import { SocialProvider } from '../SocialAuthButton';
 
 export interface SocialAuthContainerProps {
   /** Called when Google button is pressed */

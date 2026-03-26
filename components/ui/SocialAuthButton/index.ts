@@ -1,2 +1,5 @@
 export { default } from './SocialAuthButton';
-export type { SocialAuthButtonProps, SocialProvider } from './SocialAuthButton.types';
+export type {
+  SocialAuthButtonProps,
+  SocialProvider,
+} from './SocialAuthButton.types';

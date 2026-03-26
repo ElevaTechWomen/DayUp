@@ -1,26 +1,26 @@
-import React from "react";
-import { View, Image, ScrollView, Text, KeyboardAvoidingView, Platform } from "react-native";
+import React from 'react';
+import {
+  View,
+  Image,
+  ScrollView,
+  Text,
+  KeyboardAvoidingView,
+  Platform,
+} from 'react-native';
 import { Input } from '../../components/ui/Input';
 import { Button } from '../../components/ui/Button';
 import { useLoginValidation } from '../../hooks/frontend/useLoginValidation';
 import { loginStyles, scrollContentStyle } from '../../Styles/loginStyles';
-import { useRouter } from "expo-router";
+import { useRouter } from 'expo-router';
 
 import SocialAuthContainer from '../../components/ui/SocialAuthContainer';
 import { SocialProvider } from '../../components/ui/SocialAuthButton';
 
 export default function LoginScreen() {
-
   const router = useRouter();
 
-  const {
-    formData,
-    errors,
-    touched,
-    handleChange,
-    handleBlur,
-    isFormValid,
-  } = useLoginValidation();
+  const { formData, errors, touched, handleChange, handleBlur, isFormValid } =
+    useLoginValidation();
 
   const handleSignIp = () => {
     console.log('Inicio de sesión exitoso:', formData);
@@ -63,9 +63,7 @@ export default function LoginScreen() {
         </View>
 
         <View className={loginStyles.formContainer}>
-          <Text className={loginStyles.title}>
-            Login
-          </Text>
+          <Text className={loginStyles.title}>Login</Text>
 
           <Input
             label="Email"
@@ -77,7 +75,6 @@ export default function LoginScreen() {
             keyboardType="email-address"
             autoCapitalize="none"
           />
-
 
           <Input
             label="Password"

@@ -1,10 +1,17 @@
 import React from 'react';
-import { View, Text, ScrollView, Image, KeyboardAvoidingView, Platform } from 'react-native';
+import {
+  View,
+  Text,
+  ScrollView,
+  Image,
+  KeyboardAvoidingView,
+  Platform,
+} from 'react-native';
 import { Input } from '../../components/ui/Input';
 import { Button } from '../../components/ui/Button';
 import { useSignUpValidation } from '../../hooks/frontend/useSignUpValidation';
 import { useRouter } from 'expo-router';
-import { useSignUp } from "../../hooks/backend/useSignUp";
+import { useSignUp } from '../../hooks/backend/useSignUp';
 
 import SocialAuthContainer from '../../components/ui/SocialAuthContainer';
 import { SocialProvider } from '../../components/ui/SocialAuthButton';
@@ -26,11 +33,11 @@ export default function SignUpScreen() {
   const handleSignUp = async () => {
     const success = await signUp(formData);
     if (success) {
-      router.replace("/(tabs)");
+      router.replace('/(tabs)');
     }
   };
 
-   // ── Social stubs (TODO Ticket #8: reemplazar con Firebase) ───────────────
+  // ── Social stubs (TODO Ticket #8: reemplazar con Firebase) ───────────────
   const handleGooglePress = async (provider: SocialProvider) => {
     // TODO (Ticket #8): await authService.signUpWithGoogle()
     console.log(`[SignUpScreen] ${provider} pressed`);
@@ -49,7 +56,7 @@ export default function SignUpScreen() {
 
   return (
     <KeyboardAvoidingView
-      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       className="flex-1 bg-white"
     >
       <ScrollView
@@ -59,7 +66,7 @@ export default function SignUpScreen() {
       >
         <View className="items-center mb-8">
           <Image
-            source={require("../../assets/images/DayUp-Logo.png")}
+            source={require('../../assets/images/DayUp-Logo.png')}
             className="w-30 h-10"
             resizeMode="contain"
           />
@@ -71,8 +78,8 @@ export default function SignUpScreen() {
           <Input
             label="User name"
             value={formData.username}
-            onChangeText={(text) => handleChange("username", text)}
-            onBlur={() => handleBlur("username")}
+            onChangeText={(text) => handleChange('username', text)}
+            onBlur={() => handleBlur('username')}
             placeholder="name"
             error={touched.username ? errors.username : undefined}
             autoCapitalize="none"
@@ -81,8 +88,8 @@ export default function SignUpScreen() {
           <Input
             label="Email"
             value={formData.email}
-            onChangeText={(text) => handleChange("email", text)}
-            onBlur={() => handleBlur("email")}
+            onChangeText={(text) => handleChange('email', text)}
+            onBlur={() => handleBlur('email')}
             placeholder="name@example.com"
             error={touched.email ? errors.email : undefined}
             keyboardType="email-address"
@@ -92,8 +99,8 @@ export default function SignUpScreen() {
           <Input
             label="Password"
             value={formData.password}
-            onChangeText={(text) => handleChange("password", text)}
-            onBlur={() => handleBlur("password")}
+            onChangeText={(text) => handleChange('password', text)}
+            onBlur={() => handleBlur('password')}
             placeholder="••••••••••••••••"
             error={touched.password ? errors.password : undefined}
             secureTextEntry
@@ -105,7 +112,7 @@ export default function SignUpScreen() {
             </Text>
           )}
           <Button
-            title={loading ? "Signing up..." : "Sign Up"}
+            title={loading ? 'Signing up...' : 'Sign Up'}
             onPress={handleSignUp}
             disabled={!isFormValid() || loading}
           />

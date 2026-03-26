@@ -24,7 +24,9 @@ const SocialAuthContainer: React.FC<SocialAuthContainerProps> = ({
   disabled = false,
   containerStyle,
 }) => {
-  const [loadingProvider, setLoadingProvider] = useState<SocialProvider | null>(null);
+  const [loadingProvider, setLoadingProvider] = useState<SocialProvider | null>(
+    null,
+  );
 
   const handlePress = async (provider: SocialProvider) => {
     const handlerMap: Record<SocialProvider, typeof onGooglePress> = {
@@ -57,7 +59,7 @@ const SocialAuthContainer: React.FC<SocialAuthContainerProps> = ({
         [
           { text: 'Retry', onPress: () => handlePress(provider) },
           { text: 'Cancel', style: 'cancel' },
-        ]
+        ],
       );
     } finally {
       setLoadingProvider(null);
@@ -68,12 +70,9 @@ const SocialAuthContainer: React.FC<SocialAuthContainerProps> = ({
 
   return (
     <View className="w-full" style={containerStyle}>
-
       <View className="flex-row items-center mb-4">
         <View className="flex-1 h-px bg-gray-200" />
-        <Text className="mx-3 text-s font-normal">
-          {separatorLabel}
-        </Text>
+        <Text className="mx-3 text-s font-normal">{separatorLabel}</Text>
         <View className="flex-1 h-px bg-gray-200" />
       </View>
 
@@ -89,7 +88,9 @@ const SocialAuthContainer: React.FC<SocialAuthContainerProps> = ({
           provider="facebook"
           onPress={handlePress}
           loading={loadingProvider === 'facebook'}
-          disabled={disabled || (isAnyLoading && loadingProvider !== 'facebook')}
+          disabled={
+            disabled || (isAnyLoading && loadingProvider !== 'facebook')
+          }
           testID="social-auth-btn-facebook"
         />
         <SocialAuthButton
@@ -100,7 +101,6 @@ const SocialAuthContainer: React.FC<SocialAuthContainerProps> = ({
           testID="social-auth-btn-apple"
         />
       </View>
-
     </View>
   );
 };
