@@ -4,10 +4,10 @@ import { Input } from '../../components/ui/Input';
 import { Button } from '../../components/ui/Button';
 import { useSignUpValidation } from '../../hooks/frontend/useSignUpValidation';
 import { useRouter } from 'expo-router';
+import { useSignUp } from "../../hooks/backend/useSignUp";
 
 import SocialAuthContainer from '../../components/ui/SocialAuthContainer';
 import { SocialProvider } from '../../components/ui/SocialAuthButton';
-
 
 const scrollContentStyle = {
   flexGrow: 1,
