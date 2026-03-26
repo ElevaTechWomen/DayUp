@@ -1,17 +1,13 @@
-import React from "react";
-import {
-  View,
-  Text,
-  ScrollView,
-  Image,
-  KeyboardAvoidingView,
-  Platform,
-} from "react-native";
-import { Input } from "../../components/ui/Input";
-import { Button } from "../../components/ui/Button";
-import { useSignUpValidation } from "../../hooks/frontend/useSignUpValidation";
-import { useRouter } from "expo-router";
-import { useSignUp } from "../../hooks/backend/useSignUp";
+import React from 'react';
+import { View, Text, ScrollView, Image, KeyboardAvoidingView, Platform } from 'react-native';
+import { Input } from '../../components/ui/Input';
+import { Button } from '../../components/ui/Button';
+import { useSignUpValidation } from '../../hooks/frontend/useSignUpValidation';
+import { useRouter } from 'expo-router';
+
+import SocialAuthContainer from '../../components/ui/SocialAuthContainer';
+import { SocialProvider } from '../../components/ui/SocialAuthButton';
+
 
 const scrollContentStyle = {
   flexGrow: 1,
@@ -33,6 +29,23 @@ export default function SignUpScreen() {
       router.replace("/(tabs)");
     }
   };
+
+   // ── Social stubs (TODO Ticket #8: reemplazar con Firebase) ───────────────
+  const handleGooglePress = async (provider: SocialProvider) => {
+    // TODO (Ticket #8): await authService.signUpWithGoogle()
+    console.log(`[SignUpScreen] ${provider} pressed`);
+  };
+
+  const handleFacebookPress = async (provider: SocialProvider) => {
+    // TODO (Ticket #8): await authService.signUpWithFacebook()
+    console.log(`[SignUpScreen] ${provider} pressed`);
+  };
+
+  const handleApplePress = async (provider: SocialProvider) => {
+    // TODO (Ticket #8): await authService.signUpWithApple()
+    console.log(`[SignUpScreen] ${provider} pressed`);
+  };
+  // ─────────────────────────────────────────────────────────────────────────
 
   return (
     <KeyboardAvoidingView
@@ -97,8 +110,13 @@ export default function SignUpScreen() {
             disabled={!isFormValid() || loading}
           />
 
-          <View className="mt-6 min-h-30">
-            {/* Los botones de Google, Facebook y Apple van aquí */}
+          <View className="mt-10 min-h-30">
+            <SocialAuthContainer
+              separatorLabel="or continue with"
+              onGooglePress={handleGooglePress}
+              onFacebookPress={handleFacebookPress}
+              onApplePress={handleApplePress}
+            />
           </View>
         </View>
       </ScrollView>

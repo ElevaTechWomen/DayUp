@@ -6,6 +6,9 @@ import { useLoginValidation } from '../../hooks/frontend/useLoginValidation';
 import { loginStyles, scrollContentStyle } from '../../Styles/loginStyles';
 import { useRouter } from "expo-router";
 
+import SocialAuthContainer from '../../components/ui/SocialAuthContainer';
+import { SocialProvider } from '../../components/ui/SocialAuthButton';
+
 export default function LoginScreen() {
 
   const router = useRouter();
@@ -23,6 +26,23 @@ export default function LoginScreen() {
     console.log('Inicio de sesión exitoso:', formData);
     router.replace('/(tabs)');
   };
+
+  // ── Social stubs (TODO Ticket #8: reemplazar con Firebase) ───────────────
+  const handleGooglePress = async (provider: SocialProvider) => {
+    // TODO (Ticket #8): await authService.loginWithGoogle()
+    console.log(`[LoginScreen] ${provider} pressed`);
+  };
+
+  const handleFacebookPress = async (provider: SocialProvider) => {
+    // TODO (Ticket #8): await authService.loginWithFacebook()
+    console.log(`[LoginScreen] ${provider} pressed`);
+  };
+
+  const handleApplePress = async (provider: SocialProvider) => {
+    // TODO (Ticket #8): await authService.loginWithApple()
+    console.log(`[LoginScreen] ${provider} pressed`);
+  };
+  // ─────────────────────────────────────────────────────────────────────────
 
   return (
     <KeyboardAvoidingView
@@ -77,7 +97,12 @@ export default function LoginScreen() {
           />
 
           <View className={loginStyles.socialContainer}>
-            {/* Los botones de   Google, Facebook y Apple van aquí */}
+            <SocialAuthContainer
+              separatorLabel="or continue with"
+              onGooglePress={handleGooglePress}
+              onFacebookPress={handleFacebookPress}
+              onApplePress={handleApplePress}
+            />
           </View>
         </View>
       </ScrollView>
